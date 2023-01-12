@@ -12,7 +12,7 @@ class TransactionsController extends Controller
 
     public function create()
     {
-        $Transactions = Transactions::all();
+        $Transactions = DB::table('transactions')->latest()->get();
         return view('Home.index', ['Transactions' => $Transactions]);
     }
 
@@ -55,4 +55,17 @@ class TransactionsController extends Controller
             return redirect('/')->with('errors', 'The cash not balenced');
         }
     }
+
+
+
+    // delete
+    public function destroy($id)
+    {
+
+        $Transactions = Transactions::find($id)->delete();
+        return redirect('/')->with('success', 'The Acount Is Deleted successfully ');
+        
+
+    }
+// end delete
 }

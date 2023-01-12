@@ -17,8 +17,11 @@ use App\Http\Controllers\TransactionsController;
 
 
 // Add To DataBase
-
 Route::get('/', [TransactionsController::class, 'create']);
 Route::post('Add', [TransactionsController::class, 'store']);
-
 // End To DataBase
+
+
+// delete From Database
+Route::get('DeleteBankAcount/{id}', [TransactionsController::class, "destroy"]);
+// End Delete From Database 

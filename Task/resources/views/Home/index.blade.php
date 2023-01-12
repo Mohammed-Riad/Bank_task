@@ -21,67 +21,70 @@
         {{-- Start Insert --}}
         <form action="/Add" method="post" role="form">
             @csrf
-            <div class="one">
-                <div>
-                    <h1 class="h1"> Insert Information</h1>
-                </div>
-                <div>
-                    <table class="">
-                        <tr class="heading">
-                            <th>Account</th>
-                            <th>Credit Side</th>
-                            <th>Debit Side</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <select name="first_person">
-                                    <option value="mohammed">mohammed</option>
-                                    <option value="riad">riad</option>
-                                    <option value="rose">rose</option>
-                                    <option value="laith">laith</option>
-                                    <option value="abood">abood</option>
-                                    <option value="khald">khald</option>
-                                    <option value="turkeh">turkeh</option>
-                                    <option value="anzor">anzor</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text" name="first_credit_amount" value="0.00"
-                                    class="form-control">
-                            </td>
+            <div>
+                <h1 class="h1"> Insert Information</h1>
+            </div>
+            <table class="table" style="margin-top: 30px">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Account</th>
+                        <th scope="col">Credit Side</th>
+                        <th scope="col">Debit Side</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>
+                            <select name="first_person">
+                                <option value="mohammed">mohammed</option>
+                                <option value="riad">riad</option>
+                                <option value="rose">rose</option>
+                                <option value="laith">laith</option>
+                                <option value="abood">abood</option>
+                                <option value="khald">khald</option>
+                                <option value="turkeh">turkeh</option>
+                                <option value="anzor">anzor</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="first_credit_amount" value="0.00" class="form-control">
 
-                            <td>
-                                <input type="text" name="first_debit_amount" value="0.00"
-                                    class="form-control">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <select name="second_person" class="custom-file">
-                                    <option value="mohammed">mohammed</option>
-                                    <option value="riad">riad</option>
-                                    <option value="rose">rose</option>
-                                    <option value="laith">laith</option>
-                                    <option value="abood">abood</option>
-                                    <option value="khald">khald</option>
-                                    <option value="turkeh">turkeh</option>
-                                    <option value="anzor">anzor</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text" name="second_credit_amount" value="0.00"
-                                    class="form-control">
-                            </td>
-                            <td>
-                                <input type="text" name="second_debit_amount" value="0.00"
-                                    class="form-control">
+                        </td>
+                        <td>
+                            <input type="text" name="first_debit_amount" value="0.00" class="form-control">
 
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>
+                            <select name="second_person" class="custom-file">
+                                <option value="mohammed">mohammed</option>
+                                <option value="riad">riad</option>
+                                <option value="rose">rose</option>
+                                <option value="laith">laith</option>
+                                <option value="abood">abood</option>
+                                <option value="khald">khald</option>
+                                <option value="turkeh">turkeh</option>
+                                <option value="anzor">anzor</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="second_credit_amount" value="0.00" class="form-control">
 
-                <input type="submit" class="btn btn-dark">
+                        </td>
+                        <td>
+                            <input type="text" name="second_debit_amount" value="0.00" class="form-control">
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <input type="submit" class="btn btn-dark" style="width: 200px">
 
         </form>
         <div>
@@ -92,54 +95,64 @@
 
 
             {{-- Start  Show informatiom --}}
-            <div class="two">
+
+            <div class="two" style="margin-top:60px">
                 <div>
                     <h1 class="h1"> Bank Information</h1>
                 </div>
-                <div>
-                    <table class="">
-                        <tr class="heading" style="background-color: black">
-                            <th>First Person</th>
-                            <th>Second Person</th>
-                            <th>Credit Amount</th>
-                            <th>Debit Amount</th>
-                            <th>Creditor</th>
-                            <th>Debtors</th>
+
+                <table class="table" style="margin-top: 30px">
+                    <thead>
+                        <tr>
+                            <th scope="col">First Person</th>
+                            <th scope="col">Second Person</th>
+                            <th scope="col">Credit Amount</th>
+                            <th scope="col">Debit Amount</th>
+                            <th scope="col">Creditor</th>
+                            <th scope="col">Debtors</th>
+                            <th scope="col">Action</th>
                         </tr>
+                    </thead>
 
-                        @foreach ($Transactions as $Transaction)
-                            <tr>
-                                <td>
-                                    {{ $Transaction->first_person }}
-                                </td>
-                                <td>
-                                    {{ $Transaction->second_person }}
+                    @foreach ($Transactions as $Transaction)
+                        <tr>
+                            <td>
+                                {{ $Transaction->first_person }}
+                            </td>
+                            <td>
+                                {{ $Transaction->second_person }}
 
-                                </td>
-                                <td>
-                                    {{ $Transaction->credit_amount }}
+                            </td>
+                            <td>
+                                {{ $Transaction->credit_amount }}
 
-                                </td>
-                                <td>
-                                    {{ $Transaction->debit_amount }}
+                            </td>
+                            <td>
+                                {{ $Transaction->debit_amount }}
 
-                                </td>
-                                <td>
-                                    {{ $Transaction->creditor }}
+                            </td>
+                            <td>
+                                {{ $Transaction->creditor }}
 
 
-                                </td>
-                                <td>
-                                    {{ $Transaction->debtors }}
+                            </td>
+                            <td>
+                                {{ $Transaction->debtors }}
 
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
+                            </td>
+                            <td>
+                                <a class="btn btn-link text-danger text-gradient px-3 mb-0"
+                                    href='DeleteBankAcount/{{ $Transaction->id }}' class="btn btn-danger"
+                                    onclick="return confirm('Are you sure')">
+                                    <i class="material-icons text-sm me-2" title="Delete">delete</i>
 
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
+
             {{-- End  Show informatiom --}}
         </div>
     @endsection
-    {{-- Start Section --}}
+    {{-- End Section --}}
