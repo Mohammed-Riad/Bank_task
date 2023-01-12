@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('first_person');
+            $table->string('second_person');
+            $table->string('creditor');
+            $table->string('debtors');
             $table->float('credit_amount')->default(0);
             $table->float('debit_amount')->default(0);
 

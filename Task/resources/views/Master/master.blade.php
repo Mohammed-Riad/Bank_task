@@ -26,11 +26,7 @@
   <div class="logo-img">
       <h4 style="padding-left:30px;" id="N">M<span id="e">k</span></h4>
   </div>
-  <ul class="nav">
-      <a href="/" ><li>Home</li></a>
-      <a href="#about"><li>About</li></a>
-      <a href="#contact"><li>Contact</li></a>
-  </ul>
+ 
 </div>
 
     {{-- End Navbar --}}
